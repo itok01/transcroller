@@ -21,7 +21,7 @@ async function openTranslateWindow(_: Menus.OnClickData, tab?: Tabs.Tab) {
   if (tab != undefined && tab.url != undefined && tab.id != undefined) {
     // Generate translated page URL
     const encodedCurrentPageURL = encodeURI(tab.url);
-    const transratedPageURL = generateTransratedPageURL(encodedCurrentPageURL, "auto", "jp");
+    const transratedPageURL = generateTransratedPageURL(encodedCurrentPageURL, "auto", browser.i18n.getUILanguage().slice(0, 2));
 
     // Open translate window
     const transrateWindow = await browser.windows.create({
